@@ -3,6 +3,8 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 let passwordOneEl = document.getElementById("passwordOne")
 let passwordTwoEl = document.getElementById("passwordTwo")
+let toast = document.getElementById("toast")
+let passwordsEl = document.getElementById("passwords")
 
 function generatePassword() {
     let passwordOne = []
@@ -20,10 +22,16 @@ function generatePassword() {
     
     passwordOneEl.textContent = passwordOne.join('').toString()
     passwordTwoEl.textContent = passwordTwo.join('').toString()
+    
+    passwordsEl.classList.add('show')
+    
+    if ( toast.className === "show" ) {
+        toast.classList.remove('show')
+    }
 }
 
-function copyPasswordOne() {
-    console.log(passwordOneEl.textContent)
-    let copyText = document.getElementById("passwordOne")
-    navigator.clipboard.writeText(copyText.textContent);
+function copyPassword(password) {
+    navigator.clipboard.writeText(password.textContent);
+    toast.classList.add('show')
+    setTimeout(function(){ toast.classList.remove('show'); }, 2000);
 }
