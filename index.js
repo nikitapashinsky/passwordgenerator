@@ -33,5 +33,5 @@ function generatePassword() {
 function copyPassword(password) {
     navigator.clipboard.writeText(password.textContent);
     toast.classList.add('show')
-    setTimeout(function(){ toast.classList.remove('show'); }, 2000);
+    setTimeout(function(){ toast.classList.remove('show'); }, 3000);
 }
